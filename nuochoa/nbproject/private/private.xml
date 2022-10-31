@@ -4,10 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/PRJ_SE1632/nuochoa/web/edit.jsp</file>
+            <file>file:/D:/PRJ_SE1632/nuochoa/web/thongtintk.jsp</file>
+            <file>file:/D:/PRJ_SE1632/nuochoa/web/edittaikhoan.jsp</file>
+            <file>file:/D:/PRJ_SE1632/nuochoa/src/java/controller/DetailController.java</file>
             <file>file:/D:/PRJ_SE1632/nuochoa/web/index.jsp</file>
+            <file>file:/D:/PRJ_SE1632/nuochoa/src/java/controller/EditAccount.java</file>
+            <file>file:/D:/PRJ_SE1632/nuochoa/web/carts.jsp</file>
             <file>file:/D:/PRJ_SE1632/nuochoa/src/java/controller/EditController.java</file>
-            <file>file:/D:/PRJ_SE1632/nuochoa/web/detail.jsp</file>
-            <file>file:/D:/PRJ_SE1632/nuochoa/web/quanli.jsp</file>
+            <file>file:/D:/PRJ_SE1632/nuochoa/src/java/dao/AccountDAO.java</file>
+            <file>file:/D:/PRJ_SE1632/nuochoa/web/login.jsp</file>
+            <file>file:/D:/PRJ_SE1632/nuochoa/src/java/controller/LoginController.java</file>
+            <file>file:/D:/PRJ_SE1632/nuochoa/src/java/controller/EditMk.java</file>
         </group>
     </open-files>
 </project-private>

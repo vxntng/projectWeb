@@ -118,11 +118,13 @@
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                            <c:if test="${sessionScope.account != null }">
                                             <div class="text-center">
                                                 <a class="btn btn-outline-dark mt-auto" href="add-to-cart?productId=${P.id}"
                                                    >Add to cart</a
                                                 >
                                             </div>
+                                                   </c:if>
                                         </div>
                                     </div>
                                 </div>

@@ -30,10 +30,20 @@
         <section class="py-5">
 
             <div class="container" style="min-height: 1000px">
-                <h1>Quan li san pham</h1>
+                <h1>Manage Product</h1>
+                
                 <div class="row">
                     <div class="col-md-12" style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
-                        <h3>List Products</h3>
+                       <div class="row">
+                        <div class="col-sm-10">
+                            <h2>List <b>Account</b></h2>
+                            
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="add"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+                            
+                        </div>
+                    </div>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -42,6 +52,8 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Price</th>
+                                    <th scope="col">Description</th>
+                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
@@ -54,17 +66,19 @@
                                         <td>${P.name}</td>
                                         <td>${P.quantity}</td>
                                         <td>${P.price}</td>
-                                        <td><a href="edit?id=${P.id}">Edit</a></td>
-                                         <td><input type="button" value="Delete" onclick="removeEmp(${e.eid})" /></td>
+                                        <td>${P.description}</td>
+                                        
+                                        <td><a class="btn btn-outline-dark" href="loadp?productId=${P.id}">Edit</a></td>
+                                        <td><a class="btn btn-outline-dark" href="delete?id=${P.id}">delete</a></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
-
                     </div>
-
                 </div>
             </div>
+            
+            
         </section>
         <%@include file="components/footerComponent.jsp" %>
     </body>

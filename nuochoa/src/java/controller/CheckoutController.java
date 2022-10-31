@@ -118,7 +118,7 @@ public class CheckoutController extends HttpServlet {
         int orderId= new OrderDAO().createReturnId(order);
         
          new OrderDetailDAO().saveCart(orderId, carts);
-         
+         session.removeAttribute("carts");
          response.sendRedirect("thanks");
     }
 

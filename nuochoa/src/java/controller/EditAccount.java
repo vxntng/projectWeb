@@ -5,21 +5,19 @@
 
 package controller;
 
-import dao.OrderDAO;
+import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
-import model.Order;
 
 /**
  *
  * @author Admin
  */
-public class TotailController extends HttpServlet {
+public class EditAccount extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,12 +31,18 @@ public class TotailController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           List<Order> listOrders = new OrderDAO().getAll();
-            request.setAttribute("listOrders", listOrders);
-              List<Order> money = new OrderDAO().gettotalMoney();
-            request.setAttribute("money", money);
-          
-            request.getRequestDispatcher("totail.jsp").forward(request, response);
+        String p_name = request.getParameter("username");
+        String p_password = request.getParameter("password");
+        String p_disName = request.getParameter("displayName");
+        String p_admin = request.getParameter("isAdmin");
+        String p_id = request.getParameter("id");
+        
+        AccountDAO p= new AccountDAO();
+        p.update(p_name, p_password, p_disName, p_admin, p_id);
+       
+        
+           
+        response.sendRedirect("account");
         }
     } 
 

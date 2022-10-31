@@ -30,46 +30,33 @@
         <section class="py-5">
 
             <div class="container" style="min-height: 1000px">
-                <h1>Manage Product</h1>
-                
+                <h1>Manage Account</h1>
+
                 <div class="row">
                     <div class="col-md-12" style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
-                       <div class="row">
-                        <div class="col-sm-10">
-                            <h2>List <b>Account</b></h2>
-                            
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="add"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-                            
-                        </div>
-                    </div>
+
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Description</th>
-                                     <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Password</th>
+                                    <th scope="col">displayName</th>
+                                    <th scope="col">isAdmin</th>
+
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${listProducts}" var="P">
+                                <c:forEach items="${listAccount}" var="P">
                                     <tr>
                                         <td>${P.id}</td>
-                                        <td><img src="${P.imageUrl}" width="40"/></td>
-                                        <td>${P.name}</td>
-                                        <td>${P.quantity}</td>
-                                        <td>${P.price}</td>
-                                        <td>${P.description}</td>
-                                        
-                                        <td><a class="btn btn-outline-dark" href="loadp?productId=${P.id}">Edit</a></td>
-                                        <td><a class="btn btn-outline-dark" href="delete?id=${P.id}">delete</a></td>
+                                        <td>${P.username}</td>
+                                        <td>${P.password}</td>
+                                        <td>${P.displayName}</td>
+                                        <td>${P.isAdmin}</td>
+                                        <td><a class="btn btn-outline-dark" href="loada?accountId=${P.id}">Edit</a></td>
+
                                     </tr>
                                 </c:forEach>
                             </tbody>
@@ -77,8 +64,8 @@
                     </div>
                 </div>
             </div>
-            
-            
+
+
         </section>
         <%@include file="components/footerComponent.jsp" %>
     </body>

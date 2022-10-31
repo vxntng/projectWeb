@@ -32,9 +32,10 @@
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="${product.imageUrl}" alt="..." /></div>
                     <div class="col-md-6">
                         <div class="small mb-1">SKU: BST-498</div>
+                        
                         <h1 class="display-5 fw-bolder">${product.name}</h1>
                         <div class="fs-5 mb-5">
-                            <span class="text-decoration-line-through">$${product.price}</span>
+                            <span class="text-decoration-line-through">$50</span>
                             <span>$${product.price}</span>
                         </div>
                         <p class="lead">${product.description}</p>
@@ -43,17 +44,14 @@
                                 <i class="bi-cart-fill me-1"></i>
                                 Add to cart
                             </a>
-                            <a class="btn btn-outline-success flex-shrink-0 ms-2" type="button">
-                                <i class="bi-cart-fill me-1"></i>
-                                Buy now
-                            </a>
+                           
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Related items section-->
-        <section class="py-5 bg-light">
+     <%--    <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">Related products</h2>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -157,6 +155,7 @@
                     </div>
                 </div>
             </div>
+            --%>
         </section>
         <%@include file="components/footerComponent.jsp" %>
     </body>

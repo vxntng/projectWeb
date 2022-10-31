@@ -5,21 +5,20 @@
 
 package controller;
 
-import dao.OrderDAO;
+import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
-import model.Order;
+import model.Product;
 
 /**
  *
  * @author Admin
  */
-public class TotailController extends HttpServlet {
+public class LoadPController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,12 +32,11 @@ public class TotailController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           List<Order> listOrders = new OrderDAO().getAll();
-            request.setAttribute("listOrders", listOrders);
-              List<Order> money = new OrderDAO().gettotalMoney();
-            request.setAttribute("money", money);
-          
-            request.getRequestDispatcher("totail.jsp").forward(request, response);
+           int  productId= Integer.parseInt(request.getParameter("productId"));
+           
+            Product product= new ProductDAO().getProductById(productId);
+           request.setAttribute("product", product);
+           request.getRequestDispatcher("edit.jsp").forward(request, response);
         }
     } 
 

@@ -26,17 +26,19 @@
     <body>
         <%@include file="components/navBarComponent.jsp" %>
         <div class="container" style="min-height: 1000px">
-           <h3>totalMoney = <td></td></h3>
+             <h3></h3>
+            <h3>Order placed</h3>
+            
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Id</th>
-                        <th scope="col">accountId</th>
+                        <th scope="col">Id order</th>
+                      
                         <th scope="col">totalPrice</th>
                         <th scope="col">note</th>
                         <th scope="col"> createdDate</th>
-                        <th scope="col">shippingId</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -45,11 +47,11 @@
                         <tr>
                             <td>${O.id}</td>
                             <td>${O.id}</td>
-                            <td>${O.accountId}</td>
+                            
                             <td>${O.totalPrice}</td>
                             <td>${O.note}</td>
                             <td>${O.createdDate}</td>
-                             <td>${O.shippingId}</td>
+                            
 
  
                         </tr>

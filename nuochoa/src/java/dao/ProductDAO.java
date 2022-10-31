@@ -26,7 +26,7 @@ public class ProductDAO {
         List<Product> list = new ArrayList<>();
         try {
             String sql = "select * from Product";
-            
+
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -168,5 +168,90 @@ public class ProductDAO {
         }
         return null;
     }
+    public void add(
+            String name,
+            String quantity,
+            String price,
+            String description,
+            String imageUrl,
+            String categoryId
+            ) {
+        String sql = "INSERT INTO [dbo].[Product]\n" +
+"           ([name]\n" +
+"           ,[quantity]\n" +
+"           ,[price]\n" +
+"           ,[description]\n" +
+"           ,[image_url]\n" +
+"           ,[category_id])\n" +
+"     VALUES\n" +
+"           (?\n" +
+"           ,?\n" +
+"           ,?\n" +
+"           ,?\n" +
+"           ,?\n" +
+"           ,?)";
+        try {
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, quantity);
+            ps.setString(3, price);
+            ps.setString(4, description);
+            ps.setString(5, imageUrl);
+            ps.setString(6, categoryId);
+           
+            ps.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
+    public void update(
+            String name,
+            String quantity,
+            String price,
+            String description,
+            String imageUrl,
+            String categoryId,
+            String id) {
+        String sql = "UPDATE [dbo].[Product]\n"
+                + "   SET [name] = ?\n"
+                + "      ,[quantity] = ?\n"
+                + "      ,[price] = ?\n"
+                + "      ,[description] = ?\n"
+                + "      ,[image_url] = ?\n"
+                + "      ,[category_id] = ?\n"
+                + " WHERE id=?";
+        try {
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, quantity);
+            ps.setString(3, price);
+            ps.setString(4, description);
+            ps.setString(5, imageUrl);
+            ps.setString(6, categoryId);
+            ps.setString(7, id);
+            ps.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public List<Product> delete(String id) {
+        List<Product> list = new ArrayList<>();
+        try {
+            String sql = "DELETE FROM [dbo].[Product]\n"
+                    + "      WHERE id =?";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            ps.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 }

@@ -90,20 +90,19 @@ input[type=text]:focus, input[type=password]:focus {
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body style="background-image:  url(https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?w=2000)">
+    <li class="nav-item" >
+                    <a style="color: black; font-size: 20px" class="nav-link active" aria-current="page" href="home">Home</a>
+                </li>
         <div style= "width: 40%; margin : auto; border : 1px solid #ccc; padding: 1rem" class= "mt-5">
+            
             <h2> Login </h2>
             <form action="login" method="POST">
                 <div class="mb-3">
-                    <%--       <label for="username" class="form-label">Username</label>
-                          <input type="text" placeholder="Enter Username" class="form-control" id="username" name="username" aria-describedby="emailHelp">
-                    --%>
+                    
                   Username  <input type="text" placeholder="Enter Username" name="username" />
                 </div>
                 <div class="mb-3">
-                     <%--
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" placeholder="Enter Password" class="form-control" id="password" name="password">
-                      --%>
+                     
                        Password  <input type="text"  placeholder="Enter Password" name="password" />
                 </div>
                 <div class="mb-3 form-check">

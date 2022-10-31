@@ -25,10 +25,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="home">Home</a>
                 </li>
-                <c:if test="${sessionScope.account.isAdmin ==1 }">
-                <li class="nav-item"><a class="nav-link" href="totail">Totail</a></li>
-                </c:if>
+                
                 <li class="nav-item"><a class="nav-link" href="#!"></a></li>
+                <c:if test="${sessionScope.account.isAdmin ==1 }">
                 <li class="nav-item dropdown">
                     <a
                         class="nav-link dropdown-toggle"
@@ -37,13 +36,16 @@
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
-                        >Shop</a
+                        >Admin Shop</a
                     >
+                     </c:if>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="manager">All Products</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                        <li><a class="dropdown-item" href="manager">Management Products</a></li>
+                         <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="account">Management Account </a></li>
+                         <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="totail">Order placed</a></li>
+                        
                     </ul>
                 </li>
             </ul>
@@ -68,7 +70,7 @@
             </div>
             <c:choose>
                 <c:when test="${sessionScope.account !=null}">
-                    <button class="btn btn-outline-primary ms-lg-2" >${sessionScope.account.displayName}</button>  
+                    <button class="btn btn-outline-primary ms-lg-2" ><a href="thongtintk.jsp" >${sessionScope.account.displayName}</a></button>  
                     <a href="logout" class="btn btn-outline-primary ms-lg-2" >Logout</a>
                 </c:when>
                 <c:otherwise>
