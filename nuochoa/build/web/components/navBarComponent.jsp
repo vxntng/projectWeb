@@ -8,7 +8,13 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="home">HOME</a>
+       <div class="header-bottom">			
+                    <div class="logo">
+                        <a href="home"><img src="https://xxivstore.com/wp-content/themes/yootheme/cache/XXIV-Logo-Web-da8bec8c.webp" alt=" " ></a>
+                    </div>
+
+                    <div class="clearfix"> </div>
+                </div>	
         <button
             class="navbar-toggler"
             type="button"

@@ -39,7 +39,7 @@ public class ProductDAO {
                         .description(rs.getString(5))
                         .imageUrl(rs.getString(6))
                         .createdDate(rs.getString(7))
-                        .categoryId(rs.getInt(8)).build();
+                        .categoryId(rs.getInt(8)).th_id(rs.getInt(9)).build();
                 list.add(product);
             }
         } catch (Exception ex) {
@@ -65,7 +65,7 @@ public class ProductDAO {
                         .description(rs.getString(5))
                         .imageUrl(rs.getString(6))
                         .createdDate(rs.getString(7))
-                        .categoryId(rs.getInt(8)).build();
+                        .categoryId(rs.getInt(8)).th_id(rs.getInt(9)).build();
                 list.add(product);
             }
         } catch (Exception ex) {
@@ -73,7 +73,31 @@ public class ProductDAO {
         }
         return list;
     }
-
+ public List<Product> getProductsByTHId(int th_id ) {
+        List<Product> list = new ArrayList<>();
+        try {
+            String sql = "select * from Product where Product.th_id = ?";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, th_id );
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = Product.builder()
+                        .id(rs.getInt(1))
+                        .name(rs.getString(2))
+                        .quantity(rs.getInt(3))
+                        .price(rs.getDouble(4))
+                        .description(rs.getString(5))
+                        .imageUrl(rs.getString(6))
+                        .createdDate(rs.getString(7))
+                        .categoryId(rs.getInt(8)).th_id(rs.getInt(9)).build();
+                list.add(product);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
     public List<Product> getProductsWithPagging(int page, int PAGE_SIZE) {
         List<Product> list = new ArrayList<>();
         try {
@@ -94,7 +118,7 @@ public class ProductDAO {
                         .description(rs.getString(5))
                         .imageUrl(rs.getString(6))
                         .createdDate(rs.getString(7))
-                        .categoryId(rs.getInt(8)).build();
+                        .categoryId(rs.getInt(8)).th_id(rs.getInt(9)).build();
                 list.add(product);
             }
         } catch (Exception ex) {
@@ -135,7 +159,7 @@ public class ProductDAO {
                         .description(rs.getString(5))
                         .imageUrl(rs.getString(6))
                         .createdDate(rs.getString(7))
-                        .categoryId(rs.getInt(8)).build();
+                        .categoryId(rs.getInt(8)).th_id(rs.getInt(9)).build();
                 list.add(product);
             }
         } catch (Exception ex) {
@@ -160,7 +184,7 @@ public class ProductDAO {
                         .description(rs.getString(5))
                         .imageUrl(rs.getString(6))
                         .createdDate(rs.getString(7))
-                        .categoryId(rs.getInt(8)).build();
+                        .categoryId(rs.getInt(8)).th_id(rs.getInt(9)).build();
                 return product;
             }
         } catch (Exception ex) {
@@ -168,28 +192,31 @@ public class ProductDAO {
         }
         return null;
     }
+
     public void add(
             String name,
             String quantity,
             String price,
             String description,
             String imageUrl,
-            String categoryId
-            ) {
-        String sql = "INSERT INTO [dbo].[Product]\n" +
-"           ([name]\n" +
-"           ,[quantity]\n" +
-"           ,[price]\n" +
-"           ,[description]\n" +
-"           ,[image_url]\n" +
-"           ,[category_id])\n" +
-"     VALUES\n" +
-"           (?\n" +
-"           ,?\n" +
-"           ,?\n" +
-"           ,?\n" +
-"           ,?\n" +
-"           ,?)";
+            String categoryId,
+            String th_id) {
+        String sql = "INSERT INTO [dbo].[Product]\n"
+                + "           ([name]\n"
+                + "           ,[quantity]\n"
+                + "           ,[price]\n"
+                + "           ,[description]\n"
+                + "           ,[image_url]\n"
+                + "           ,[category_id]\n"
+                + "           ,[th_id])\n"
+                + "     VALUES\n"
+                + "           (?\n"
+                + "           ,?\n"
+                + "           ,?\n"
+                + "           ,?\n"
+                + "           ,?\n"
+                + "           ,?\n"
+                + "           ,?)";
         try {
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -199,7 +226,8 @@ public class ProductDAO {
             ps.setString(4, description);
             ps.setString(5, imageUrl);
             ps.setString(6, categoryId);
-           
+            ps.setString(7, th_id);
+
             ps.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -213,6 +241,7 @@ public class ProductDAO {
             String description,
             String imageUrl,
             String categoryId,
+            String th_id,
             String id) {
         String sql = "UPDATE [dbo].[Product]\n"
                 + "   SET [name] = ?\n"
@@ -221,6 +250,7 @@ public class ProductDAO {
                 + "      ,[description] = ?\n"
                 + "      ,[image_url] = ?\n"
                 + "      ,[category_id] = ?\n"
+                   + "      ,[th_id] = ?\n"
                 + " WHERE id=?";
         try {
             Connection conn = new DBContext().getConnection();
@@ -231,7 +261,8 @@ public class ProductDAO {
             ps.setString(4, description);
             ps.setString(5, imageUrl);
             ps.setString(6, categoryId);
-            ps.setString(7, id);
+            ps.setString(7, th_id);
+            ps.setString(8, id);
             ps.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -249,6 +280,58 @@ public class ProductDAO {
             ResultSet rs = ps.executeQuery();
             ps.executeUpdate();
 
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public List<Product> tangdan() {
+        List<Product> list = new ArrayList<>();
+        try {
+            String sql = "select * from Product ORDER BY price ASC";
+
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = Product.builder()
+                        .id(rs.getInt(1))
+                        .name(rs.getString(2))
+                        .quantity(rs.getInt(3))
+                        .price(rs.getDouble(4))
+                        .description(rs.getString(5))
+                        .imageUrl(rs.getString(6))
+                        .createdDate(rs.getString(7))
+                        .categoryId(rs.getInt(8)).th_id(rs.getInt(9)).build();
+                list.add(product);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public List<Product> giamdan() {
+        List<Product> list = new ArrayList<>();
+        try {
+            String sql = "select * from Product ORDER BY price DESC";
+
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = Product.builder()
+                        .id(rs.getInt(1))
+                        .name(rs.getString(2))
+                        .quantity(rs.getInt(3))
+                        .price(rs.getDouble(4))
+                        .description(rs.getString(5))
+                        .imageUrl(rs.getString(6))
+                        .createdDate(rs.getString(7))
+                        .categoryId(rs.getInt(8)).th_id(rs.getInt(9)).build();
+                list.add(product);
+            }
         } catch (Exception ex) {
             Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

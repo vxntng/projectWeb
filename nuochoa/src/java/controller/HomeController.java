@@ -7,6 +7,7 @@ package controller;
 
 import dao.CategoryDAO;
 import dao.ProductDAO;
+import dao.ThuonghieuDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,6 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import model.Category;
 import model.Product;
+import model.Thuonghieu;
 
 /**
  *
@@ -36,7 +38,8 @@ public class HomeController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
              List<Category> listCategories = new CategoryDAO().getAllCategories();
-           
+             List<Thuonghieu> thuonghieu = new ThuonghieuDAO().getAllTH();
+        request.setAttribute("thuonghieu", thuonghieu);
            
             
             int page = 1;
@@ -59,7 +62,8 @@ public class HomeController extends HttpServlet {
             request.setAttribute("listCategories", listCategories);
             request.setAttribute("listProducts", listProducts);
 
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+           // request.getRequestDispatcher("index.jsp").forward(request, response);
+             request.getRequestDispatcher("Home.jsp").forward(request, response);
         }
     } 
 

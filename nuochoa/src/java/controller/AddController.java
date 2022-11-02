@@ -7,6 +7,7 @@ package controller;
 
 import dao.CategoryDAO;
 import dao.ProductDAO;
+import dao.ThuonghieuDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -15,6 +16,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import model.Category;
+import model.Thuonghieu;
 
 /**
  *
@@ -41,12 +43,13 @@ public class AddController extends HttpServlet {
         String p_description = request.getParameter("description");
         String p_imageUrl = request.getParameter("imageUrl");
         String p_categoryIdl = request.getParameter("categoryId");
-        
+        String p_th_id = request.getParameter("th_id");
          List<Category> listCategories = new CategoryDAO().getAllCategories();
         request.setAttribute("listCategories", listCategories);
-        
+        List<Thuonghieu> thuonghieu = new ThuonghieuDAO().getAllTH();
+        request.setAttribute("thuonghieu", thuonghieu);
          ProductDAO p= new ProductDAO();
-        p.add(p_name, p_quantity, p_price, p_description, p_imageUrl, p_categoryIdl);
+        p.add(p_name, p_quantity, p_price, p_description, p_imageUrl, p_categoryIdl, p_th_id);
          request.getRequestDispatcher("add.jsp").forward(request, response);
         }
     } 

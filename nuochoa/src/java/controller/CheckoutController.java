@@ -95,7 +95,7 @@ public class CheckoutController extends HttpServlet {
         Shipping shipping = Shipping.builder().name(name).phone(phone).address(address).build();
         int shippingId = new ShippingDAO().createReturnId(shipping);
 
-        new ShippingDAO().createReturnId(shipping);
+        //new ShippingDAO().createReturnId(shipping);
 
         HttpSession session = request.getSession();
         Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");

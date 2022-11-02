@@ -64,6 +64,14 @@
                                 </c:forEach>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label>Thuong Hieu</label>
+                            <select name="categoryId" class="form-select" aria-label="Default select example">
+                                <c:forEach items="${requestScope.thuonghieu}" var="c">
+                                    <option value="${c.idth}">${c.nameth}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
 
                     </div>
                     <div class="modal-footer">

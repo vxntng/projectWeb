@@ -30,11 +30,12 @@ public class Product {
     private String imageUrl;
     private String createdDate;
     private int categoryId;
+    private int th_id;
 
     public Product() {
     }
 
-    public Product(int id, String name, int quantity, double price, String description, String imageUrl, String createdDate, int categoryId) {
+    public Product(int id, String name, int quantity, double price, String description, String imageUrl, String createdDate, int categoryId, int th_id) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
@@ -43,6 +44,7 @@ public class Product {
         this.imageUrl = imageUrl;
         this.createdDate = createdDate;
         this.categoryId = categoryId;
+        this.th_id = th_id;
     }
 
     public int getId() {
@@ -108,6 +110,15 @@ public class Product {
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
-    
+
+    public int getTh_id() {
+        return th_id;
+    }
+
+    public void setTh_id(int th_id) {
+        this.th_id = th_id;
+    }
+
+   
     
 }

@@ -88,6 +88,18 @@
         <servlet-name>EditMk</servlet-name>
         <servlet-class>controller.EditMk</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GiaTangdan</servlet-name>
+        <servlet-class>controller.GiaTangdan</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GiaGiamdan</servlet-name>
+        <servlet-class>controller.GiaGiamdan</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchTH</servlet-name>
+        <servlet-class>controller.SearchTH</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -175,6 +187,18 @@
     <servlet-mapping>
         <servlet-name>EditMk</servlet-name>
         <url-pattern>/edit-mk</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GiaTangdan</servlet-name>
+        <url-pattern>/giatang</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GiaGiamdan</servlet-name>
+        <url-pattern>/giamdan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchTH</servlet-name>
+        <url-pattern>/searchth</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

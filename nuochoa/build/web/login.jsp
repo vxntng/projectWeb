@@ -103,7 +103,7 @@ input[type=text]:focus, input[type=password]:focus {
                 </div>
                 <div class="mb-3">
                      
-                       Password  <input type="text"  placeholder="Enter Password" name="password" />
+                       Password  <input type="password"  placeholder="Enter Password" name="password" />
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">

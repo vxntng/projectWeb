@@ -37,7 +37,7 @@ public class SearchController extends HttpServlet {
            
             List<Product> listProducts=  new ProductDAO().search(keyword);
             request.setAttribute("listProducts", listProducts);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("Home.jsp").forward(request, response);
         }
     } 
 

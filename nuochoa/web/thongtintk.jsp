@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <div style="color:red; font-size: 10px"> If you change your password or display name, you will be logged in again</div>
+                        <div style="color:red; font-size: 10px"> If you change your password, you will be logged in again</div>
                         <a href="editmk.jsp" class="btn btn-outline-primary ms-lg-2" >Change information</a>
                     </div>
                 </form>

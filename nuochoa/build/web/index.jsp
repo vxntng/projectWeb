@@ -21,19 +21,22 @@
             />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css1/styles.css" rel="stylesheet" />
     </head>
     <body style="background-image:  url(https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?w=2000)">
         <%@include file="components/navBarComponent.jsp" %>
 
         <!-- Header-->
-        <header class="bg-dark py-5">
+         
+        <header class="masthead " >
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
+                   
                     <h1 class="display-4 fw-bolder">XXIV Store</h1>
                     <p class="uk-panel uk-text-meta uk-margin uk-text-center">You deserve to be happy</p>
 
                     <p class="lead fw-normal text-white-50 mb-0">
-                        chào mừng các bạn đến với XXIV store – một tiệm nước hoa nho nhỏ lấy cảm hứng từ những con người có cảm xúc đặc biệt biệt với hương thơm mê hoặc
+                        Chào mừng các bạn đến với XXIV store – một tiệm nước hoa nho nhỏ lấy cảm hứng từ những con người có cảm xúc đặc biệt biệt với hương thơm mê hoặc
                     </p>
                 </div>
             </div>
@@ -45,36 +48,57 @@
                     <div class="col-md-3 mb-5">
                         <h3>List Categories</h3>
                         <ul class="list-group">
+                           
                             <c:forEach items="${listCategories}" var="C">
                                 <li class="list-group-item"><a href="filter-category?categoryId=${C.id}">${C.name}</a></li>
-
+                      
                             </c:forEach>
 
 
                         </ul>
+                        <h3>Theo giá</h3>
+
+                        <form action="giatang" class="d-flex mx-auto">
+                            <button class="btn btn-dark" type="submit">
+                                PRICE (LOW - HIGH)
+                            </button>
+
+                        </form>
+                        <form action="giamdan" class="d-flex mx-auto">
+
+                            <button class="btn btn-dark" type="submit">
+                                PRICE (HIGH - LOW )
+                            </button>
+                        </form>
+
                     </div>
                     <div class="col-md-9">
                         <h3>List Products</h3>
                          <c:choose>
-                            <c:when test="${listProducts==null || listProducts.size()==0}">
-                                Not founds
-                            </c:when>
-                            <c:otherwise>
-                                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="home?page=${page-1}">Previous</a></li>
-                                            <c:forEach begin="1" end="${totalPage}" var="i">
-                                            <li class="page-item ${i == page?"active":""}"><a class="page-link" href="home?page=${i}">${i}</a></li>
-                                            </c:forEach>
-                                        <li class="page-item"><a class="page-link" href="home?page=${page+1}">Next</a></li>
-                                    </ul>
-                                </nav>
-                            </c:otherwise>
-                        </c:choose>
-                                
-                        <div
+                        <c:when test="${listProducts==null || listProducts.size()==0}">
+                            <h3 style="color: red"> NO MORE PRODUCTS</h3>
+                        </c:when>
+                        <c:otherwise>
+                            <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="home?page=${page-1}">Previous</a></li>
+                                        <c:forEach begin="1" end="${totalPage}" var="i">
+                                        <li class="page-item ${i == page?"active":""}"><a class="page-link" href="home?page=${i}">${i}</a></li>
+                                        </c:forEach>
+                                    <li class="page-item"><a class="page-link" href="home?page=${page+1}">Next</a></li>
+                                </ul>
+                            </nav>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:choose>
+                        <c:when test="${listProducts==null }">
+                            <h3 style="color: red"> NO MORE PRODUCTS</h3>
+                        </c:when>
+                        <c:otherwise>
+                            <div
                             class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 justify-content-center"
                             >
+
                             <c:forEach items="${listProducts}" var="P">
                                 <div class="col mb-5">
                                     <div class="card h-100">
@@ -110,21 +134,19 @@
                                                     <div class="bi-star-fill"></div>
                                                 </div>
                                                 <!-- Product price-->
-                                                <span class="text-muted text-decoration-line-through"
-                                                      >$20.00</span
-                                                >
+
                                                 $${P.price}
                                             </div>
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                             <c:if test="${sessionScope.account != null }">
-                                            <div class="text-center">
-                                                <a class="btn btn-outline-dark mt-auto" href="add-to-cart?productId=${P.id}"
-                                                   >Add to cart</a
-                                                >
-                                            </div>
-                                                   </c:if>
+                                                <div class="text-center">
+                                                    <a class="btn btn-outline-dark mt-auto" href="add-to-cart?productId=${P.id}"
+                                                       >Add to cart</a
+                                                    >
+                                                </div>
+                                            </c:if>
                                         </div>
                                     </div>
                                 </div>
@@ -132,8 +154,13 @@
 
 
                         </div>
+                        </c:otherwise>
+                    </c:choose>
+
                        
+
                     </div>
+                   
                 </div>
             </div>
         </section>

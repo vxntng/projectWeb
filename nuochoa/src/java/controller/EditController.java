@@ -41,8 +41,9 @@ public class EditController extends HttpServlet {
         String p_imageUrl = request.getParameter("imageUrl");
         String p_createdDate = request.getParameter("createdDate");
         String p_categoryIdl = request.getParameter("categoryId");
+         String p_th_id = request.getParameter("th_id");
         ProductDAO p= new ProductDAO();
-        p.update(p_name, p_quantity, p_price, p_description, p_imageUrl, p_categoryIdl, p_id);
+        p.update(p_name, p_quantity, p_price, p_description, p_imageUrl, p_categoryIdl, p_th_id, p_id);
        
         
            

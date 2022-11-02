@@ -134,4 +134,42 @@ public class AccountDAO {
         }
         return null;
     }
+    
+    public void add(
+            String name,
+            String quantity,
+            String price,
+            String description,
+            String imageUrl,
+            String categoryId
+            ) {
+        String sql = "INSERT INTO [dbo].[Product]\n" +
+"           ([name]\n" +
+"           ,[quantity]\n" +
+"           ,[price]\n" +
+"           ,[description]\n" +
+"           ,[image_url]\n" +
+"           ,[category_id])\n" +
+"     VALUES\n" +
+"           (?\n" +
+"           ,?\n" +
+"           ,?\n" +
+"           ,?\n" +
+"           ,?\n" +
+"           ,?)";
+        try {
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, quantity);
+            ps.setString(3, price);
+            ps.setString(4, description);
+            ps.setString(5, imageUrl);
+            ps.setString(6, categoryId);
+           
+            ps.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

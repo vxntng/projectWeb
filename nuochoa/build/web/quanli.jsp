@@ -36,7 +36,7 @@
                     <div class="col-md-12" style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
                        <div class="row">
                         <div class="col-sm-10">
-                            <h2>List <b>Account</b></h2>
+                            <h2>List <b>Product</b></h2>
                             
                         </div>
                         <div class="col-sm-2">

@@ -42,7 +42,7 @@ public class FilterCategory extends HttpServlet {
             request.setAttribute("listCategories", listCategories);
             request.setAttribute("listProducts", listProducts);
 
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("Home.jsp").forward(request, response);
         }
     } 
 
