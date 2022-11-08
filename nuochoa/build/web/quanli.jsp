@@ -31,55 +31,65 @@
 
             <div class="container" style="min-height: 1000px">
                 <h1>Manage Product</h1>
-                
+
                 <div class="row">
                     <div class="col-md-12" style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
-                       <div class="row">
-                        <div class="col-sm-10">
-                            <h2>List <b>Product</b></h2>
-                            
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h2>List <b>Product</b></h2>
+
+                            </div>
+                            <div class="col-sm-2">
+                                <a href="add"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+
+                            </div>
+                            <div class="col-sm-2">
+                                <a href="addcategory"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Category</span></a>
+
+                            </div>
+                            <div class="col-sm-2">
+                                <a href="addth"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Trademark</span></a>
+
+                            </div>
                         </div>
-                        <div class="col-sm-2">
-                            <a href="add"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-                            
-                        </div>
+
                     </div>
-                        <table class="table">
-                            <thead>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Description</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${listProducts}" var="P">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Description</th>
-                                     <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    <td>${P.id}</td>
+                                    <td><img src="${P.imageUrl}" width="40"/></td>
+                                    <td>${P.name}</td>
+                                    <td>${P.quantity}</td>
+                                    <td>${P.price}</td>
+                                    <td>${P.description}</td>
+
+                                    <td><a class="btn btn-outline-dark" href="loadp?productId=${P.id}">Edit</a></td>
+                                    <td><a class="btn btn-outline-dark" href="delete?id=${P.id}">delete</a></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${listProducts}" var="P">
-                                    <tr>
-                                        <td>${P.id}</td>
-                                        <td><img src="${P.imageUrl}" width="40"/></td>
-                                        <td>${P.name}</td>
-                                        <td>${P.quantity}</td>
-                                        <td>${P.price}</td>
-                                        <td>${P.description}</td>
-                                        
-                                        <td><a class="btn btn-outline-dark" href="loadp?productId=${P.id}">Edit</a></td>
-                                        <td><a class="btn btn-outline-dark" href="delete?id=${P.id}">delete</a></td>
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
+                            </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            
-            
-        </section>
-        <%@include file="components/footerComponent.jsp" %>
-    </body>
+        </div>
+
+
+    </section>
+    <%@include file="components/footerComponent.jsp" %>
+</body>
 </html>

@@ -113,6 +113,7 @@ input[type=text]:focus, input[type=password]:focus {
                       <h3 class="text-danger">${error } </h3>
                 <button type="submit" class="btn btn-primary">Login</button>
                 <span class="psw">Forgot <a href="#">password?</a></span>
+                <span class="psw">Forgot <a href="addacount.jsp">Sign up</a></span>
         </div>
     </form>
 

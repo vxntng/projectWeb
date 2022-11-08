@@ -10,10 +10,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- *
- * @author Le Hong Quan
- */
 @Builder
 @Getter
 @Setter

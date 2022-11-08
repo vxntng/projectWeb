@@ -6,6 +6,7 @@
 package controller;
 
 import dao.OrderDAO;
+import dao.StatusDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import model.Order;
+import model.Status;
 
 /**
  *
@@ -35,6 +37,8 @@ public class TotailController extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
            List<Order> listOrders = new OrderDAO().getAll();
             request.setAttribute("listOrders", listOrders);
+            List<Status> status = new StatusDAO().getall();
+            request.setAttribute("status", status);
               List<Order> money = new OrderDAO().gettotalMoney();
             request.setAttribute("money", money);
           

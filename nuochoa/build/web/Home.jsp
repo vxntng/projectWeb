@@ -55,6 +55,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="container">
                 <div class="women-in">
                     <div class="col-md-12 col-d">
+                         
+                           
                         <div class="banner">
                             <div class="text-center text-white">
 
@@ -68,7 +70,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                         <!---->
                         <div class="row">
-                            <div class="col-md-3 mb-5">
+                            <div class="col-md-4 mb-5">
                                 <h3>List Categories</h3>
                                 <ul class="list-group">
 
@@ -82,7 +84,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>
 
 
-                            <div class="col-md-3 mb-5">
+                            <div class="col-md-4 mb-5">
                                 <h3>Thuong Hieu</h3>
 
                                 <c:forEach items="${thuonghieu}" var="C">
@@ -90,17 +92,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                                 </c:forEach>
                             </div>
-                            <div class="col-md-6 mb-5">
+                            <div class="col-md-4 mb-5">
                                 <h3>PRICE</h3>
                                 <form action="giatang" class="d-flex mx-auto">
-                                    <button class="btn btn-dark" type="submit">
+                                    <button class="btn btn-dark" style="width: 300px" type="submit">
                                         PRICE (LOW - HIGH)
                                     </button>
 
                                 </form>
                                 <form action="giamdan" class="d-flex mx-auto">
 
-                                    <button class="btn btn-dark" type="submit">
+                                    <button class="btn btn-dark" style="width: 300px" type="submit">
                                         PRICE (HIGH - LOW )
                                     </button>
                                 </form>
@@ -108,11 +110,48 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
                             </div>
+                            
+                            
+                           
                         </div>
                         <div class="in-line">
                             <div class="para-an">
-                                <h3>List Products</h3>
-                                <p>Check our all new products in this section.</p>
+                               <h3>List Products</h3>
+                                <div class="row">
+                                     <div class="col-md-4 mb-5">
+                                        <li class="nav-item">
+                                            <a  class="nav-link active" aria-current="page" href="home"><h3 style="color: orangered ">All Product</h3></a>
+                                        </li>
+                                    </div>
+                                    <div class="col-md-4 mb-5">
+                                        <li class="nav-item">
+                                            <a  class="nav-link active" aria-current="page" href="listp2022"><h3 style="color: orangered ">New Product In 2022</h3></a>
+                                        </li>
+                                    </div>
+                                    <div class="col-md-4 mb-5">
+                                        <li class="nav-item">
+                                            <a  class="nav-link active" aria-current="page" href="listp2021"><h3 style="color: orangered "> Product before 2022</h3></a>
+                                        </li>
+                                    </div>
+                                </div>
+                                 
+                                <p>Check our all new products in this section.</p> <div class="col-md-3 mb-5">
+                                <h3>ByName</h3>
+
+                                <form action="search" class="d-flex mx-auto">
+
+                                <input
+                                    class="form-control me-2"
+                                    type="search"
+                                    placeholder="Search by name"
+                                    aria-label="Search"
+                                    name="keyword"
+                                    />
+                                <button class="btn btn-outline-success" type="submit">
+                                    Search
+                                </button>
+                            </form>
+                            </div>
                             </div>
                             <c:choose>
                                 <c:when test="${listProducts==null || listProducts.size()==0}">
@@ -177,13 +216,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                             </div>
                                             <!-- Product actions-->
                                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                                <%--   <c:if test="${sessionScope.account != null }">--%>
-                                                <div class="text-center">
-                                                    <a class="btn btn-outline-dark mt-auto" href="add-to-cart?productId=${P.id}"
-                                                       >Add to cart</a
-                                                    >
-                                                </div>
-                                                <%--  </c:if>--%>
+                                                <c:if test="${sessionScope.account != null }">
+                                                    <div class="text-center">
+                                                        <a class="btn btn-outline-dark mt-auto" href="add-to-cart?productId=${P.id}"
+                                                           >Add to cart</a
+                                                        >
+                                                    </div>
+                                                </c:if>
                                             </div>
                                         </div>
                                     </div>
@@ -215,49 +254,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="clearfix"> </div>
                 </div>
                 <!---->
-                <div class="lady-in-on">
-                    <div class="buy-an">
-                        <h3>OTHER PRODUCTS</h3>
-                        <p>Check our all new products in this section.</p>
-                    </div>
-                    <ul id="flexiselDemo1">
-                        <c:forEach items="${listProducts}" var="P">
-                            <li><a href="detail?productId=${P.id}"><img class="img-responsive women" src="${P.imageUrl}" alt=""></a>
-                                <div class="hide-in">
-                                    <p>${P.name}</p>
-                                    <span>${P.price}  |  <a href="add-to-cart?productId=${P.id}">Buy Now </a></span>
-                                </div></a></li>
-                            </c:forEach>
-                    </ul>
-                    <script type="text/javascript">
-                        $(window).load(function () {
-                            $("#flexiselDemo1").flexisel({
-                                visibleItems: 4,
-                                animationSpeed: 1000,
-                                autoPlay: true,
-                                autoPlaySpeed: 3000,
-                                pauseOnHover: true,
-                                enableResponsiveBreakpoints: true,
-                                responsiveBreakpoints: {
-                                    portrait: {
-                                        changePoint: 480,
-                                        visibleItems: 1
-                                    },
-                                    landscape: {
-                                        changePoint: 640,
-                                        visibleItems: 2
-                                    },
-                                    tablet: {
-                                        changePoint: 768,
-                                        visibleItems: 3
-                                    }
-                                }
-                            });
 
-                        });
-                    </script>
-                    <script type="text/javascript" src="js/jquery.flexisel.js"></script>
-                </div>
             </div>
         </div>
         <!---->

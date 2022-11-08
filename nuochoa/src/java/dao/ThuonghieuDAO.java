@@ -19,7 +19,8 @@ import model.Thuonghieu;
  * @author Admin
  */
 public class ThuonghieuDAO {
-     public List<Thuonghieu> getAllTH() {
+
+    public List<Thuonghieu> getAllTH() {
         List<Thuonghieu> list = new ArrayList<>();
         try {
             String sql = "select * from Thuonghieu";
@@ -38,8 +39,8 @@ public class ThuonghieuDAO {
         }
         return list;
     }
-     
-      public List<Thuonghieu> getProductsByCategoryId(int categoryId) {
+
+    public List<Thuonghieu> getProductsByCategoryId(int categoryId) {
         List<Thuonghieu> list = new ArrayList<>();
         try {
             String sql = "select * from Product where Product.category_id = ?";
@@ -58,4 +59,21 @@ public class ThuonghieuDAO {
         }
         return list;
     }
+
+    public void add(String nameth) {
+        String sql = "INSERT INTO [dbo].[Thuonghieu]\n"
+                + "           ([nameth])\n"
+                + "     VALUES\n"
+                + "           (?)";
+        try {
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, nameth);
+
+            ps.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

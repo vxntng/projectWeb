@@ -32,9 +32,13 @@
                     <a class="nav-link active" aria-current="page" href="home">Home</a>
                 </li>
                 
-                <li class="nav-item"><a class="nav-link" href="#!"></a></li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="gioithieu.jsp">Giới thiệu</a>
+                </li>
+                
+                
                 <c:if test="${sessionScope.account.isAdmin ==1 }">
-                <li class="nav-item dropdown">
+               <li class="nav-item dropdown">
                     <a
                         class="nav-link dropdown-toggle"
                         id="navbarDropdown"
@@ -42,31 +46,22 @@
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
-                        >Admin Shop</a
-                    >
-                     </c:if>
+                        >Admin Shop</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="manager">Management Products</a></li>
                          <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="account">Management Account </a></li>
                          <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="totail">Order placed</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="listshipping">List Shipping</a></li>
                         
                     </ul>
                 </li>
+                     </c:if>
+                 
             </ul>
-            <form action="search" class="d-flex mx-auto">
-                <input
-                    class="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                    name="keyword"
-                    />
-                <button class="btn btn-outline-success" type="submit">
-                    Search
-                </button>
-            </form>
+          
             <div class="d-flex my-2">
                 <a class="btn btn-outline-dark" href="carts">
                     <i class="bi-cart-fill me-1"></i>

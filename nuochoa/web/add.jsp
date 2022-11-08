@@ -64,7 +64,7 @@
                                 </c:forEach>
                             </select>
                         </div>
-                        <div class="form-group">
+                           <div class="form-group">
                             <label>Thuong Hieu</label>
                             <select name="categoryId" class="form-select" aria-label="Default select example">
                                 <c:forEach items="${requestScope.thuonghieu}" var="c">
@@ -72,13 +72,13 @@
                                 </c:forEach>
                             </select>
                         </div>
-
+                        
                     </div>
                     <div class="modal-footer">
                         <a class="btn btn-outline-dark" href="manager">Cancel</a>
-                       
+
                         <input type="submit" onclick="abc()" class="btn btn-success" value="Add" >
-                       
+
                     </div>
                 </form>
             </div>

@@ -41,4 +41,19 @@ public class CategoryDAO { //thao tác với bảng category
         return list;
     }
 
+    public void add(String name) {
+        String sql = "INSERT INTO [dbo].[Category]\n"
+                + "           ([name])\n"
+                + "     VALUES\n"
+                + "           (?)";
+        try {
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+
+            ps.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

@@ -6,6 +6,7 @@ package controller;
 
 import dao.CategoryDAO;
 import dao.ProductDAO;
+import dao.ThuonghieuDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -15,6 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import model.Category;
 import model.Product;
+import model.Thuonghieu;
 
 /**
  *
@@ -42,6 +44,8 @@ public class ManagerController extends HttpServlet {
             request.setAttribute("listProducts", listProducts);
             List<Category> listCategories = new CategoryDAO().getAllCategories();
             request.setAttribute("listCategories", listCategories);
+            List<Thuonghieu> thuonghieu = new ThuonghieuDAO().getAllTH();
+            request.setAttribute("thuonghieu", thuonghieu);
             request.getRequestDispatcher("quanli.jsp").forward(request, response);
         }
     }

@@ -47,6 +47,56 @@ public class ProductDAO {
         }
         return list;
     }
+     public List<Product> getAll2021() {
+        List<Product> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM Product  where created_date < '2022-01-01'";
+
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = Product.builder()
+                        .id(rs.getInt(1))
+                        .name(rs.getString(2))
+                        .quantity(rs.getInt(3))
+                        .price(rs.getDouble(4))
+                        .description(rs.getString(5))
+                        .imageUrl(rs.getString(6))
+                        .createdDate(rs.getString(7))
+                        .categoryId(rs.getInt(8)).th_id(rs.getInt(9)).build();
+                list.add(product);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+     public List<Product> getAll2022() {
+        List<Product> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM Product  where created_date > '2022-01-01'";
+
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = Product.builder()
+                        .id(rs.getInt(1))
+                        .name(rs.getString(2))
+                        .quantity(rs.getInt(3))
+                        .price(rs.getDouble(4))
+                        .description(rs.getString(5))
+                        .imageUrl(rs.getString(6))
+                        .createdDate(rs.getString(7))
+                        .categoryId(rs.getInt(8)).th_id(rs.getInt(9)).build();
+                list.add(product);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 
     public List<Product> getProductsByCategoryId(int categoryId) {
         List<Product> list = new ArrayList<>();

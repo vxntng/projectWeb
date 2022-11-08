@@ -36,20 +36,7 @@ public class AddController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-             String p_id = request.getParameter("id");
-        String p_name = request.getParameter("name");
-        String p_quantity = request.getParameter("quantity");
-        String p_price = request.getParameter("price");
-        String p_description = request.getParameter("description");
-        String p_imageUrl = request.getParameter("imageUrl");
-        String p_categoryIdl = request.getParameter("categoryId");
-        String p_th_id = request.getParameter("th_id");
-         List<Category> listCategories = new CategoryDAO().getAllCategories();
-        request.setAttribute("listCategories", listCategories);
-        List<Thuonghieu> thuonghieu = new ThuonghieuDAO().getAllTH();
-        request.setAttribute("thuonghieu", thuonghieu);
-         ProductDAO p= new ProductDAO();
-        p.add(p_name, p_quantity, p_price, p_description, p_imageUrl, p_categoryIdl, p_th_id);
+            
          request.getRequestDispatcher("add.jsp").forward(request, response);
         }
     } 
@@ -65,7 +52,11 @@ public class AddController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        List<Category> listCategories = new CategoryDAO().getAllCategories();
+        request.setAttribute("listCategories", listCategories);
+        List<Thuonghieu> thuonghieu = new ThuonghieuDAO().getAllTH();
+        request.setAttribute("thuonghieu", thuonghieu);
+        request.getRequestDispatcher("add.jsp").forward(request, response);
     } 
 
     /** 
@@ -78,7 +69,21 @@ public class AddController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+          String p_id = request.getParameter("id");
+        String p_name = request.getParameter("name");
+        String p_quantity = request.getParameter("quantity");
+        String p_price = request.getParameter("price");
+        String p_description = request.getParameter("description");
+        String p_imageUrl = request.getParameter("imageUrl");
+        String p_categoryIdl = request.getParameter("categoryId");
+        String p_th_id = request.getParameter("th_id");
+         List<Category> listCategories = new CategoryDAO().getAllCategories();
+        request.setAttribute("listCategories", listCategories);
+       List<Thuonghieu> thuonghieu = new ThuonghieuDAO().getAllTH();
+        request.setAttribute("thuonghieu", thuonghieu);
+         ProductDAO p= new ProductDAO();
+        p.add(p_name, p_quantity, p_price, p_description, p_imageUrl, p_categoryIdl, p_th_id);
+         request.getRequestDispatcher("add.jsp").forward(request, response);
     }
 
     /** 

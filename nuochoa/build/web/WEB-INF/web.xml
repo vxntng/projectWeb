@@ -100,6 +100,34 @@
         <servlet-name>SearchTH</servlet-name>
         <servlet-class>controller.SearchTH</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddCategory</servlet-name>
+        <servlet-class>controller.AddCategory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddTH</servlet-name>
+        <servlet-class>controller.AddTH</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListShipping</servlet-name>
+        <servlet-class>controller.ListShipping</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchShipping</servlet-name>
+        <servlet-class>controller.SearchShipping</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchOrderStastus</servlet-name>
+        <servlet-class>controller.SearchOrderStastus</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListP2021</servlet-name>
+        <servlet-class>controller.ListP2021</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListP2022</servlet-name>
+        <servlet-class>controller.ListP2022</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -199,6 +227,34 @@
     <servlet-mapping>
         <servlet-name>SearchTH</servlet-name>
         <url-pattern>/searchth</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCategory</servlet-name>
+        <url-pattern>/addcategory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddTH</servlet-name>
+        <url-pattern>/addth</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListShipping</servlet-name>
+        <url-pattern>/listshipping</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchShipping</servlet-name>
+        <url-pattern>/searchship</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchOrderStastus</servlet-name>
+        <url-pattern>/searchos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListP2021</servlet-name>
+        <url-pattern>/listp2021</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListP2022</servlet-name>
+        <url-pattern>/listp2022</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

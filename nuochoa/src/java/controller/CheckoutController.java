@@ -16,6 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import model.Account;
 import model.Cart;
 import model.Order;
 import model.OrderDetail;
@@ -113,7 +114,7 @@ public class CheckoutController extends HttpServlet {
         }
         
         //luu vào order
-        Order order = Order.builder().accountId(1).totalPrice(shippingId).note(note).shippingId(shippingId).build();
+        Order order = Order.builder().accountId( 1).totalPrice(shippingId).note(note).shippingId(shippingId).status_id(1).build();
         
         int orderId= new OrderDAO().createReturnId(order);
         
